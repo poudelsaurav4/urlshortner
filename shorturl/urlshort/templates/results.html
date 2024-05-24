@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>List Of ulrs</title>
+    <style>
+       a{
+        text-decoration: none;
+       } 
+        
+    </style>
+</head>
+<body>
+    <h1>Urls and their results</h1>
+    <table>
+        <tr>
+            {% for i in list_of_urls %}
+                <li><strong><a href="{{i.url}}">{{i.url}}</a></strong><hr>
+                    <a href="{{ request.build_absolute_uri }}{{i.short_url}}">{{request.build_absolute_uri}}{{i.short_url}}</a><hr>
+                </li>
+            {%endfor%}
+        </tr> 
+     </table>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>URL SHORTNER</title>
+
+    <style>
+    form{
+        border: 1px;
+        border-radius: 25%;
+    }
+    a{
+        text-decoration: none;
+       }
+   
+    </style>
+</head>
+<body>
+    <h1>Url Shortner</h1>
+    <form method="POST" action="{% url 'urlshort:home'%}">
+        {% csrf_token %}
+        <p>Enter link to shorten</p>
+        <input type="url" name="url" id="" placeholder="Enter Long url in this field"><br>
+        <button type="submit">make it small</button>
+    </form>
+    {% if error_message%}
+    <p>{{error_message}}</p>
+    {%endif%}
+    {% if short_ur %}
+    <p>Your shorten url is :<a href="{{short_ur}}">{{short_ur}}</a></p>
+    {% endif %}
+    <a href="{%url 'urlshort:details'%}"> View Details</a>
+</body>
+</html>
