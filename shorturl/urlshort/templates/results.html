@@ -17,7 +17,7 @@
         <tr>
             {% for i in list_of_urls %}
                 <li><strong><a href="{{i.url}}">{{i.url}}</a></strong><hr>
-                    <a href="{{ request.build_absolute_uri }}{{i.short_url}}">{{request.build_absolute_uri}}{{i.short_url}}</a><hr>
+                    <a href="{{i.url}}">{{base_url}}{{i.short_url}}</a><hr>
                 </li>
             {%endfor%}
         </tr> 

@@ -1,11 +1,15 @@
 from django.urls import path
 from . import views
+from django.views.generic.base import RedirectView
+
 
 app_name = "urlshort"
 
 urlpatterns = [
-    path("", views.index, name = "home"),
+    path("", views.login, name="login"),
+    path("/", views.index, name = "home"),
+    path("register/", views.register, name="register"),
     path("<str:short_url>", views.redirect_back, name= "redirect"),
-    path("/", views.details, name = "details"),
-
+    path("details/", views.details, name = "details"),
+    path("", views.login, name="login"),
 ]
