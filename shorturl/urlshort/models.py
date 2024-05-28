@@ -1,9 +1,13 @@
 from django.db import models
 import random
 import string
+from django.contrib.auth.models import User
+from django.conf import settings
+
+
 # Create your models here.
 class UrlData(models.Model):
-
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     url = models.CharField(max_length=255)
     short_url = models.CharField(max_length=20)
     
@@ -31,5 +35,4 @@ class RegisterUser(models.Model):
 
     def __str__(self):
         return self.username
-    
     

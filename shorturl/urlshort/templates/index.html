@@ -17,6 +17,7 @@
     </style>
 </head>
 <body>
+    <h1>Hello {{username}}</h1>
     <h1>Url Shortner</h1>
     <form method="POST" action="{% url 'urlshort:home'%}">
         {% csrf_token %}

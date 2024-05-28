@@ -18,9 +18,15 @@
         <input type="submit" value="Login">
         <br>
         <a href="{%url 'urlshort:register'%}"> Donot have account??</a>
-        {%if error%}
+        <!-- {%if error%}
             <p>{{error}}
             </p>
+        {%endif%} -->
+
+        {%if messages%}
+            {%for message in messages %}
+                {{message}}
+            {%endfor%}
         {%endif%}
     </form>
 </body>
