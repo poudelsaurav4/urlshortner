@@ -96,10 +96,10 @@ def logout_view(request):
 
         logout(request)
         messages.success(request, "YOu are successfully logged out")
-        redirect('urlshort:login')
-    else:
-        messages.error(request, "you are not logged in yet")
-        redirect('urlshort:home')
+        return render(request, 'login.html')
+    # else:
+        # messages.error(request, "you are not logged in yet")
+        # redirect('urlshort:home')
 
 def redirect_back(request, short_url):
         n_url = UrlData.objects.get(short_url=short_url)

@@ -12,5 +12,5 @@ urlpatterns = [
     path("register/", register, name="register"),
     path("<str:short_url>", redirect_back, name= "redirect"),
     path("details/", details, name = "details"),
-    path("/logout/", logout_view, name="logout"),
+    path("logout/", logout_view, name="logout"),
 ]

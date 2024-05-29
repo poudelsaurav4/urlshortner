@@ -6,6 +6,10 @@
     <title>Login</title>
 </head>
 <body>
+
+    {% if user.is_authenticated%}
+    <h1>You are already Logged in</h1>
+    {%else%}
     <form action="" method="POST">
         {% csrf_token %}
 
@@ -28,6 +32,7 @@
                 {{message}}
             {%endfor%}
         {%endif%}
+{%endif%}
     </form>
 </body>
 </html>
