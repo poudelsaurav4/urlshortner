@@ -9,6 +9,7 @@
 
     {% if user.is_authenticated%}
     <h1>You are already Logged in</h1>
+    <a href="{%url 'urlshort:home'%}">go back to home</a>
     {%else%}
     <form action="" method="POST">
         {% csrf_token %}

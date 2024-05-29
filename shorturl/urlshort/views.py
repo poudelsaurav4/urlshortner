@@ -104,4 +104,3 @@ def logout_view(request):
 def redirect_back(request, short_url):
         n_url = UrlData.objects.get(short_url=short_url)
         return redirect(n_url.url)
-    
