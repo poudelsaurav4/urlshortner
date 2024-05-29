@@ -95,7 +95,7 @@ def logout_view(request):
     if request.user.is_authenticated:
 
         logout(request)
-        messages.success(request, "YOu are successfully logged out")
+        messages.success(request, "You are successfully logged out")
         return render(request, 'login.html')
     # else:
         # messages.error(request, "you are not logged in yet")

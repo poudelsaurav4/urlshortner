@@ -5,7 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
 </head>
-
+    {% load bootstrap5 %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+        
 <style>
     form{
         border: 1px;
@@ -14,8 +17,11 @@
         
     }
     input{
-        width: 50%;
-    }
+            width: 50%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            box-sizing: border-box;
+            }
     input.login{
         width: 10%;
         background-color: aliceblue;
@@ -34,9 +40,23 @@
 <body>
 
     {% if user.is_authenticated%}
-    <h1>You are already Logged in</h1>
-    <a href="{%url 'urlshort:home'%}">go back to home</a>
+    <div class="alert alert-dark" role="alert">
+        Your are already loggedin!!!
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+
+        <a href="{%url 'urlshort:home'%}">back to home</a>
+        
     {%else%}
+    {%if messages%}
+            {%for message in messages %}
+            <div class="alert alert-dark" role="alert">
+                    {{message}}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            
+              </div>
+            {%endfor%}
+        {%endif%}
     <form action="" method="POST">
         {% csrf_token %}
 
@@ -49,16 +69,9 @@
         <input type="submit" value="Login" class="login">
         <br><br>
         <a href="{%url 'urlshort:register'%}"> Donot have account??</a>
-        <!-- {%if error%}
-            <p>{{error}}
-            </p>
-        {%endif%} -->
+        
 
-        {%if messages%}
-            {%for message in messages %}
-                {{message}}
-            {%endfor%}
-        {%endif%}
+        
 {%endif%}
     </form>
 </body>

@@ -8,7 +8,7 @@ app_name = "urlshort"
 
 urlpatterns = [
     path('', user_login, name='login'),
-    path("home/", index, name = "home"),
+    path("/", index, name = "home"),
     path("register/", register, name="register"),
     path("<str:short_url>", redirect_back, name= "redirect"),
     path("details/", details, name = "details"),

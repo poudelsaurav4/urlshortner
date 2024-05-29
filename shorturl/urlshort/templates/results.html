@@ -4,15 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>List Of ulrs</title>
+    {% load bootstrap5 %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
     <style>
        a{
         text-decoration: none;
        } 
-        
+         
     </style>
 </head>
 <body>
-    <h1>hello {{username}} are your shorturls</h1>
+    <h1>hello {{username}}!!! Here are your short urls</h1>
     <table>
         <tr>
             {% for i in list_of_urls %}

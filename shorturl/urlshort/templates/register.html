@@ -5,6 +5,9 @@
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <title>Register</title>
         </head>
+        {% load bootstrap5 %}
+        {% bootstrap_css %}
+        {% bootstrap_javascript %}
         <style>
             form{
                 border: 1px;
@@ -14,6 +17,9 @@
             }
             input{
                 width: 50%;
+                padding: 12px 20px;
+                margin: 8px 0;
+                box-sizing: border-box;
             }
             input.login{
                 width: 10%;
@@ -52,7 +58,9 @@
                 <a href="{%url 'urlshort:login'%}"> already have an account???</a>
                 {% if messages %}
                     {% for message in messages %}
-                         <p>{{ message }}</p>
+                    <div class="alert alert-dark" role="alert">
+                        {{ message }}
+                      </div>
                     {% endfor %}
                 {% endif %}
             </form>
