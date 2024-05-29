@@ -26,9 +26,10 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-
+AUTH_USER_MODEL = "urlshort.CustomUser"
 # Application definition
-
+LOGIN_URL = '/'
+LOGOUT_URL = '/'
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',

@@ -17,6 +17,9 @@
     </style>
 </head>
 <body>
+    
+<!-- {% if user.is_authenticated %} -->
+
     <h1>Hello {{username}}</h1>
     <h1>Url Shortner</h1>
     <form method="POST" action="{% url 'urlshort:home'%}">
@@ -32,5 +35,9 @@
     <p>Your shorten url is :<a href="{{short_ur}}">{{short_ur}}</a></p>
     {% endif %}
     <a href="{%url 'urlshort:details'%}"> View Details</a>
+
+    
+    <!-- <a href="{'login.html'}"><input type="submit" value="Logout"></a> -->
+<!-- {%endif%} -->
 </body>
 </html>
