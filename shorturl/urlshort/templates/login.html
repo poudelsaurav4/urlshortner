@@ -5,6 +5,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
 </head>
+
+<style>
+    form{
+        border: 1px;
+        border-radius: 25%;
+        
+        
+    }
+    input{
+        width: 50%;
+    }
+    input.login{
+        width: 10%;
+        background-color: aliceblue;
+        border-radius: 15%;
+    }
+    a{
+        text-decoration: none;
+        text-shadow: black;
+       }
+    body{
+        margin: 1%;
+        align-items: center;
+    }
+</style>
+
 <body>
 
     {% if user.is_authenticated%}
@@ -14,14 +40,14 @@
     <form action="" method="POST">
         {% csrf_token %}
 
-        <label for="email">Email</label>
+        <label for="email">Email</label><br>
         <input type="email" name="email" id="" placeholder="Enter Your email">
-        <br>
-        <label for="password">New Password</label>
+        <br><br>
+        <label for="password">New Password</label><br>
         <input type="password" name="password" id="" placeholder="enter your password">
-        <br>
-        <input type="submit" value="Login">
-        <br>
+        <br><br>
+        <input type="submit" value="Login" class="login">
+        <br><br>
         <a href="{%url 'urlshort:register'%}"> Donot have account??</a>
         <!-- {%if error%}
             <p>{{error}}

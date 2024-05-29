@@ -50,32 +50,32 @@ def user_login(request):
 
 @login_required
 def index(request):
-    if not request.user.is_authenticated:
-        login_url = f"{settings.LOGIN_URL}?next={request.path}"
-        print(f"Redirecting to: {login_url}") 
-        return redirect(login_url)
+    # if not request.user.is_authenticated:
+        # login_url = f"{settings.LOGIN_URL}?next={request.path}"
+        # print(f"Redirecting to: {login_url}") 
+        # return redirect(login_url)
         # return redirect(f"{settings.LOGIN_URL}?next={request.path}")
 
-    else:
-        context = {}
-        context['username'] = request.user.username
-        if request.method == "POST":
-            url  = request.POST['url']
+    # else:
+    context = {}
+    context['username'] = request.user.username
+    if request.method == "POST":
+        url  = request.POST['url']
 
-            if url:        
-                existing_url = UrlData.objects.filter(url=url).first()
-                if existing_url:
-                    short_ur = request.build_absolute_uri()+existing_url.short_url
-                    context['short_ur']= short_ur
+        if url:        
+            existing_url = UrlData.objects.filter(url=url).first()
+            if existing_url:
+                short_ur = request.build_absolute_uri()+existing_url.short_url
+                context['short_ur']= short_ur
 
-            # if url in UrlData.objects.filter(url=url):
-            #     short_ur = request.build_absolute_uri()+url.short_url
-                else:
-                    n_url = UrlData.objects.create(url=url, user = request.user)
-                    short_ur = request.build_absolute_uri() + n_url.short_url
-                    context['short_ur']= short_ur
+        # if url in UrlData.objects.filter(url=url):
+        #     short_ur = request.build_absolute_uri()+url.short_url
+            else:
+                n_url = UrlData.objects.create(url=url, user = request.user)
+                short_ur = request.build_absolute_uri() + n_url.short_url
+                context['short_ur']= short_ur
 
-        return render(request, 'index.html', context)
+    return render(request, 'index.html', context)
 # else:
 #     return redirect('urlshort:login')
 

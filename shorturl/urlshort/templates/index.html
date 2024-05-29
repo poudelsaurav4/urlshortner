@@ -13,6 +13,10 @@
     a{
         text-decoration: none;
        }
+    body{
+        margin: 2%;
+        align-items: center;
+    }
    
     </style>
 </head>
@@ -26,17 +30,20 @@
         {% csrf_token %}
         <p>Enter link to shorten</p>
         <input type="url" name="url" id="" placeholder="Enter Long url in this field"><br>
+        <br>
         <button type="submit">make it small</button>
+        <br>
+        <br>
     </form>
     {% if error_message%}
     <p>{{error_message}}</p>
     {%endif%}
     {% if short_ur %}
-    <p>Your shorten url is :<a href="{{short_ur}}">{{short_ur}}</a></p>
+    <p>Your shorten url is :<a href="{{short_ur}}">{{short_ur}}</a></p><br>
     {% endif %}
     <a href="{%url 'urlshort:details'%}"> View Details</a>
-
-    
+    <br>
+    <br>
     <a href="{% url 'urlshort:logout'%}" ><input type="submit" value="Logout"></a> 
  {%endif%}
 </body>

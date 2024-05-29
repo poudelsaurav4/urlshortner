@@ -5,26 +5,50 @@
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <title>Register</title>
         </head>
-        <body>
+        <style>
+            form{
+                border: 1px;
+                border-radius: 25%;
+                
+                
+            }
+            input{
+                width: 50%;
+            }
+            input.login{
+                width: 10%;
+                background-color: aliceblue;
+                border-radius: 15%;
+            }
+            a{
+                text-decoration: none;
+                text-shadow: black;
+               }
+            body{
+                margin: 1%;
+                align-items: center;
+            }
+        </style>
+          <body>
             <form action="" method="POST">
                 {% csrf_token %}
 
-                <label for="email">Email</label>
+                <label for="email">Email</label><br>
                 <input type="email" name="email" id="">
                 <br>
-                <label for="username">UserName</label>
+                <label for="username">UserName</label><br>
                 <input type="text" name="username" id="">
                 <br>
 
-                <label for="password">New Password</label>
+                <label for="password">New Password</label><br>
                 <input type="password" name="password" id="">
                 <br>
 
-                <label for="password">Confirm Password</label>
+                <label for="password">Confirm Password</label><br>
                 <input type="password" name="confirm password" id="">
                 <br>
 
-                <input type="submit" value="Register">
+                <input type="submit" value="Register" class="login"><br><br>
                 <a href="{%url 'urlshort:login'%}"> already have an account???</a>
                 {% if messages %}
                     {% for message in messages %}
